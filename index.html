@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hangman Game</title>
-</head>
-<body>
-  <script src='hangman.js'></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+  </head>
+  <body>
+    <div>
+      <p id='puzzle'></p>
+      <p id='remainingGuesses'></p>
+      <p id='message'></p>
+    </div>
+    <form id='submitGuess'>
+      <input id='guessText' type="text" name='guessText' maxlength="1" autofocus autocomplete="off"/>
+      <button type='submit'>your guess!</button>
+    </form>
+
+    <script src="hangman.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
