@@ -33,7 +33,7 @@ class Hangman {
       }
       if (isUnique && !isRight) {
         this.remainingGuesses--;
-        this.message = 'wrong guess!';
+        this.message = 'wrong guess..';
       }
     } else {
       this.message = 'plese type an alphabet letter';
@@ -45,21 +45,16 @@ class Hangman {
     //const text = this.text.join('').replace(/\s+/g, '').split('');
 
     // every letter in the array is included in the guessedLetters will return true
-    const clearFlag = this.text.every((letter) => {
+    const completionFlag = this.text.every((letter) => {
       return this.guessedLetters.includes(letter) || letter === ' ';
     });
 
-    if (clearFlag) {
-      this.status = 'made it';
+    if (completionFlag) {
+      this.status = 'completed';
     }
     if (this.remainingGuesses === 0) {
       this.status = 'over';
     }
-  }
-  // wipe the game result for game reset
-  resetGame() {
-    document.getElementById('statusContainer').textContent = null;
-    this.message = ''
   }
 }
 
