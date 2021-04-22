@@ -1,57 +1,65 @@
-const Hangman = function (wordToGuess, guesses) {
-  this.text = wordToGuess.toLowerCase().split(''); // convert it to an array
-  this.remainingGuesses = guesses;
-  this.guessedLetters = [];
-  this.message = ''
-  this.status = 'playing'
-};
+class Hangman {
+  constructor(wordToGuess, guesses) {
+    this.text = wordToGuess.toLowerCase().split(''); // convert it to an array
+    this.remainingGuesses = guesses;
+    this.guessedLetters = [];
+    this.message = '';
+    this.status = 'playing';
+  }
+  // set and get the puzzle
+  getPuzzle() {
+    let puzzle = '';
+    this.text.forEach((letter) => {
+      if (this.guessedLetters.includes(letter) || letter === ' ') {
+        puzzle += letter;
+      } else {
+        puzzle += '*';
+      }
+    });
+    return puzzle;
+  }
+  // take input and check if it matches and set the message
+  makeGuess(guess) {
+    if (guess.toLowerCase().match(/[a-z]/)) {
+      const isUnique = !this.guessedLetters.includes(guess);
+      const isRight = this.text.includes(guess);
 
-Hangman.prototype.getPuzzle = function () {
-  let puzzle = '';
-  this.text.forEach((letter) => {
-    if (this.guessedLetters.includes(letter) || letter === ' ') {
-      puzzle += letter;
+      if (isUnique) {
+        this.guessedLetters.push(guess);
+        console.log('push');
+      }
+      if (isUnique && isRight) {
+        this.message = 'nice!';
+      }
+      if (isUnique && !isRight) {
+        this.remainingGuesses--;
+        this.message = 'wrong guess!';
+      }
     } else {
-      puzzle += '*';
+      this.message = 'plese type an alphabet letter';
     }
-  });
-  return puzzle;
-};
-
-Hangman.prototype.makeGuess = function (guess) {
-  if (guess.toLowerCase().match(/[a-z]/)) {
-    const isUnique = !this.guessedLetters.includes(guess);
-    const isRight = this.text.includes(guess);
-
-    if (isUnique) {
-      this.guessedLetters.push(guess);
-      console.log('push')
-    }
-    if (isUnique && isRight) {
-      this.message = 'nice!'
-    } 
-    if (isUnique && !isRight) {
-      this.remainingGuesses--;
-      this.message = 'wrong guess!'
-    }
-  } else {
-    this.message = 'plese type an alphabet letter';
   }
-};
+  // set game status whether if it's playing, clear or over
+  setStatus() {
+    // make this.text to string and remove ' ', and then put it back to array with split
+    //const text = this.text.join('').replace(/\s+/g, '').split('');
 
-Hangman.prototype.setStatus = function() {
-  // make this.text to string and remove ' ', and then put it back to array with split
-  const text = this.text.join('').replace(/\s+/g, '').split('')
- 
-  // every letter in the array is included in the guessedLetters will return true
-  const clearFlag = text.every((letter) => {
-    return this.guessedLetters.includes(letter)
-  })
+    // every letter in the array is included in the guessedLetters will return true
+    const clearFlag = this.text.every((letter) => {
+      return this.guessedLetters.includes(letter) || letter === ' ';
+    });
 
-  if (clearFlag) {
-    this.status = 'clear'
-  };
-  if (this.remainingGuesses === 0) {
-    this.status = 'over';
+    if (clearFlag) {
+      this.status = 'made it';
+    }
+    if (this.remainingGuesses === 0) {
+      this.status = 'over';
+    }
   }
-};
+  // wipe the game result for game reset
+  resetGame() {
+    document.getElementById('statusContainer').textContent = null;
+    this.message = ''
+  }
+}
+

@@ -13,10 +13,16 @@
     </div>
     <form id='submitGuess'>
       <input id='guessText' type="text" name='guessText' maxlength="1" autofocus autocomplete="off"/>
-      <button type='submit'>your guess!</button>
+      <button type='submit' id="guessBtn">your guess!</button>
     </form>
+    <div id='statusContainer'>
+      <h2 id ='status'></h2>
+    </div>
+    
 
     <script src="hangman.js"></script>
+    <script src="requests.js"></script>
     <script src="app.js"></script>
+    
   </body>
 </html>
