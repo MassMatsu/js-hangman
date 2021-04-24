@@ -20,23 +20,27 @@ class Hangman {
   }
   // take input and check if it matches and set the message
   makeGuess(guess) {
+    
     if (guess.toLowerCase().match(/[a-z]/)) {
       const isUnique = !this.guessedLetters.includes(guess);
       const isRight = this.text.includes(guess);
 
       if (isUnique) {
         this.guessedLetters.push(guess);
-        console.log('push');
+      }
+      if (!isUnique) {
+        this.message = 'got it already'
       }
       if (isUnique && isRight) {
         this.message = 'nice!';
+        correct.play()
       }
       if (isUnique && !isRight) {
         this.remainingGuesses--;
         this.message = 'wrong guess..';
       }
     } else {
-      this.message = 'plese type an alphabet letter';
+      this.message = 'plese type a letter';
     }
   }
   // set game status whether if it's playing, clear or over
