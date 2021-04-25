@@ -6,6 +6,16 @@ class Hangman {
     this.message = '';
     this.status = 'playing';
   }
+  play(src) {
+    const audio = document.getElementById('audio');
+    const btn = document.getElementById('guessBtn');
+
+    btn.addEventListener('click', () => {
+      audio.src = `./sound/${src}.mp3`;
+      audio.play();
+      console.log('hello')
+    });
+  };
   // set and get the puzzle
   getPuzzle() {
     let puzzle = '';
@@ -20,7 +30,6 @@ class Hangman {
   }
   // take input and check if it matches and set the message
   makeGuess(guess) {
-    
     if (guess.toLowerCase().match(/[a-z]/)) {
       const isUnique = !this.guessedLetters.includes(guess);
       const isRight = this.text.includes(guess);
@@ -33,11 +42,12 @@ class Hangman {
       }
       if (isUnique && isRight) {
         this.message = 'nice!';
-        correct.play()
+        this.play('correct')
       }
       if (isUnique && !isRight) {
         this.remainingGuesses--;
         this.message = 'wrong guess..';
+        this.play('incorrect')
       }
     } else {
       this.message = 'plese type a letter';
@@ -60,5 +70,6 @@ class Hangman {
       this.status = 'over';
     }
   }
+
 }
 
