@@ -88,24 +88,11 @@ const clearText = () => {
   inputEl.value = '';
 };
 
-// window.addEventListener('click', () => {
-//   const audio = document.getElementById('opening');
-//   audio.src = './sound/terror.mp3'
-//   audio.autoplay = true
-//   //audio.play()
-//   //game.play('correct')
-//   console.log('loaded')
-// }, {once: true})
-
-const play = (src) => {
-  const audio = document.getElementById('audio');
-  const btn = document.getElementById('guessBtn');
-
-  btn.addEventListener('click', () => {
-    audio.src = `./sound/${src}.mp3`;
-    audio.play();
-  });
-};
+window.addEventListener('click', () => {
+  const audio = document.getElementById('opening');
+  audio.src = './sound/terror.mp3'
+  audio.autoplay = true
+}, {once: true})
 
 document.querySelector('#submitGuess').addEventListener('submit', (e) => {
   e.preventDefault();
