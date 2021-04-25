@@ -8,13 +8,8 @@ class Hangman {
   }
   play(src) {
     const audio = document.getElementById('audio');
-    const btn = document.getElementById('guessBtn');
-
-    btn.addEventListener('click', () => {
-      audio.src = `./sound/${src}.mp3`;
-      audio.play();
-      console.log('hello')
-    });
+    audio.src = `./sound/${src}.mp3`;
+    audio.play();
   };
   // set and get the puzzle
   getPuzzle() {
@@ -43,12 +38,12 @@ class Hangman {
       }
       if (isUnique && isRight) {
         this.message = 'nice!';
-        //this.play('correct')
+        this.play('correct')
       }
       if (isUnique && !isRight) {
         this.remainingGuesses--;
         this.message = 'wrong guess..';
-        //this.play('incorrect')
+        this.play('incorrect')
       }
     } else {
       this.message = 'plese type a letter';
