@@ -35,6 +35,7 @@ class Hangman {
       }
       if (!isUnique) {
         this.message = 'got it already'
+        this.play('already')
       }
       if (isUnique && isRight) {
         this.message = 'nice!';
