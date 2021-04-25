@@ -64,9 +64,11 @@ const renderResult = () => {
 
   if (game.status === 'over') {
     statusEl.textContent = 'Game is over';
+    game.play('over')
   }
   if (game.status === 'completed') {
     statusEl.textContent = 'Great job! you guessed the word!';
+    game.play('completed')
   }
 
   if (game.status !== 'playing') {
@@ -86,14 +88,14 @@ const clearText = () => {
   inputEl.value = '';
 };
 
-// window.addEventListener('DOMContentLoaded', () => {
+// window.addEventListener('click', () => {
 //   const audio = document.getElementById('opening');
 //   audio.src = './sound/terror.mp3'
 //   audio.autoplay = true
 //   //audio.play()
 //   //game.play('correct')
 //   console.log('loaded')
-// })
+// }, {once: true})
 
 const play = (src) => {
   const audio = document.getElementById('audio');
@@ -119,6 +121,7 @@ const startGame = async () => {
   const puzzle = await fetchPuzzle();
   game = new Hangman(puzzle, 6);
   render();
+  game.play('terror')
 };
 
 let game;
