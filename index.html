@@ -1,11 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hangman Game</title>
-</head>
-<body>
-  <script src='hangman.js'></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="container">
+        <h1>Hangman Game</h1>
+        <h4 class="subtitle">Find the hidden word</h4>
+        <div class="game-status-container">
+          <svg height="250" width="200" class="figure-container">
+            <!--stand-->
+            <line x1="60" y1="20" x2="140" y2="20" />
+            <line x1="140" y1="20" x2="140" y2="50" />
+            <line x1="60" y1="20" x2="60" y2="230" />
+            <line x1="20" y1="230" x2="140" y2="230" />
+            <!--head-->
+            <circle cx="140" cy="70" r="20" class="figure-part" />
+            <!--body-->
+            <line x1="140" y1="90" x2="140" y2="150" class="figure-part" />
+            <!--arms-->
+            <line x1="140" y1="105" x2="130" y2="140" class="figure-part" />
+            <line x1="140" y1="105" x2="150" y2="140" class="figure-part" />
+            <!--legs-->
+            <line x1="140" y1="150" x2="130" y2="180" class="figure-part" />
+            <line x1="140" y1="150" x2="150" y2="180" class="figure-part" />
+          </svg>
+          <div class="wrong-letters-container">
+            <div id="wrong-letters">
+              <p>wrong</p>
+              <span>| &nbsp;</span>
+              <span id="wrong-letter"></span>
+              <span> &nbsp; |</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div id="puzzle" class="puzzle">
+            <span></span>
+          </div>
+          <p id="remainingGuesses" class="remainingGuess"></p>
+          <p id="message" class="message"></p>
+        </div>
+        <form id="submitGuess" class="form">
+          <input
+            id="guessText"
+            type="text"
+            name="guessText"
+            maxlength="1"
+            autofocus
+            autocomplete="off"
+          />
+          <button type="submit" id="guessBtn" >your guess!</button>
+        </form>
+      </div>
+      <div id="modal-container" class="modal-container">
+        <div class="result">
+          <h2 id="status"></h2>
+          <p id="answer"></p>
+          <button id="nextBtn">next game</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <iframe id='opening' allow='autoplay' style='display:none'></iframe> -->
+    <audio id='opening' src=""></audio>
+    <audio id='audio' src=''></audio>
+    <script src="hangman.js"></script>
+    <script src="requests.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
