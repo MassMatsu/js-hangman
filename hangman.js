@@ -30,24 +30,25 @@ class Hangman {
   }
   // take input and check if it matches and set the message
   makeGuess(guess) {
-    if (guess.toLowerCase().match(/[a-z]/)) {
-      const isUnique = !this.guessedLetters.includes(guess);
-      const isRight = this.text.includes(guess);
+    const newGuess = guess.toLowerCase()
+    if (newGuess.match(/[a-z]/)) {
+      const isUnique = !this.guessedLetters.includes(newGuess);
+      const isRight = this.text.includes(newGuess);
 
       if (isUnique) {
-        this.guessedLetters.push(guess);
+        this.guessedLetters.push(newGuess);
       }
       if (!isUnique) {
         this.message = 'got it already'
       }
       if (isUnique && isRight) {
         this.message = 'nice!';
-        this.play('correct')
+        //this.play('correct')
       }
       if (isUnique && !isRight) {
         this.remainingGuesses--;
         this.message = 'wrong guess..';
-        this.play('incorrect')
+        //this.play('incorrect')
       }
     } else {
       this.message = 'plese type a letter';

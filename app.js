@@ -86,14 +86,14 @@ const clearText = () => {
   inputEl.value = '';
 };
 
-window.addEventListener('DOMContentLoaded', () => {
-  const audio = document.getElementById('opening');
-  audio.src = './sound/terror.mp3'
-  audio.autoplay = true
-  //audio.play()
-  //game.play('correct')
-  console.log('loaded')
-})
+// window.addEventListener('DOMContentLoaded', () => {
+//   const audio = document.getElementById('opening');
+//   audio.src = './sound/terror.mp3'
+//   audio.autoplay = true
+//   //audio.play()
+//   //game.play('correct')
+//   console.log('loaded')
+// })
 
 const play = (src) => {
   const audio = document.getElementById('audio');
