@@ -1,4 +1,4 @@
-class Hangman {
+export class Hangman {
   constructor(wordToGuess, guesses) {
     this.text = wordToGuess.toLowerCase().split(''); // convert it to an array
     this.remainingGuesses = guesses;
@@ -6,11 +6,6 @@ class Hangman {
     this.message = '';
     this.status = 'playing';
   }
-  play(src) {
-    const audio = document.getElementById('audio');
-    audio.src = `./sound/${src}.mp3`;
-    audio.play();
-  };
   // set and get the puzzle
   getPuzzle() {
     let puzzle = '';
@@ -23,32 +18,26 @@ class Hangman {
     });
     return puzzle;
   }
-  // take input and check if it matches and set the message
+  // take input and check if it matches. then set the message and play sound
   makeGuess(guess) {
-    const newGuess = guess.toLowerCase()
+    const newGuess = guess.toLowerCase();
     if (newGuess.match(/[a-z]/)) {
-      console.log('new', newGuess)
       const isUnique = !this.guessedLetters.includes(newGuess);
       const isRight = this.text.includes(newGuess);
-
-      console.log('unique', isUnique)
-      console.log('right', isRight)
 
       if (isUnique) {
         this.guessedLetters.push(newGuess);
       }
       if (!isUnique) {
-        this.message = 'got it already'
-        this.play('already')
-      } else
-      if (isUnique && isRight) {
+        this.message = 'got it already';
+        this.play('already');
+      } else if (isUnique && isRight) {
         this.message = 'nice!';
-        this.play('correct')
-      } else
-      if (isUnique && !isRight) {
+        this.play('correct');
+      } else if (isUnique && !isRight) {
         this.remainingGuesses--;
         this.message = 'wrong guess..';
-        this.play('incorrect')
+        this.play('incorrect');
       }
     } else {
       this.message = 'plese type a letter';
@@ -71,6 +60,10 @@ class Hangman {
       this.status = 'over';
     }
   }
-
+  // play sound effect dynamicaly
+  play(src) {
+    const audio = document.getElementById('audio');
+    audio.src = `./sound/${src}.mp3`;
+    audio.play();
+  }
 }
-
