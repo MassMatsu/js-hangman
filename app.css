@@ -21,6 +21,7 @@ body {
 .game-container {
   overflow: hidden;
   width: 100%;
+  
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -44,7 +45,14 @@ h1 {
   display: flex;
   justify-content: center;
 }
+.container {
+  width: 90%;
+  height: 90%;
+}
 .puzzle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
   font-size: 3rem;
   text-align: center;
@@ -65,9 +73,11 @@ h1 {
 }
 @media screen and (min-width: 768px) {
   .game-status-container {
-    justify-content: space-around
+    justify-content: space-around;
   }
-
+  .container {
+    width: 45%;
+  }
   .puzzle span {
     font-size: 2rem;
     height: 2.4rem;
@@ -78,15 +88,17 @@ h1 {
     width: 2rem;
   }
 }
-
+.reamining-guesses-container{
+  padding-bottom: 1rem;
+}
 .remainingGuess {
   text-align: center;
 }
 .message {
   height: 1rem;
   text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
   transition: var(--transition);
 }
 
@@ -101,9 +113,27 @@ h1 {
   display: none;
 }
 
-.wrong-letters-container {
-  padding: 20px;
+.wrong-title {
+  font-size: 1.3rem;
+  letter-spacing: .25rem;
 }
+.wrong-letters-container {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrong-letter {
+  margin-top: .5rem;
+  font-size: 1.75rem;
+  letter-spacing: .75rem;
+}
+.remaining-guesses{
+  font-size: 1.3rem;
+  letter-spacing: .25rem;
+}
+
 .form {
   display: flex;
   justify-content: center;
@@ -132,6 +162,55 @@ h1 {
   cursor: pointer;
 }
 
+/* keyboard --------------------------- */
+.keyboard {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.first-quarter{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.second-quarter{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.third-quarter{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forth-quarter {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.keyboard button{
+  width: 14%;
+  padding: .5rem;
+  margin-bottom: .25rem;
+  background-color: transparent;
+  color: rgb(141, 141, 141);
+  border: 1px solid rgb(141, 141, 141);
+  border-radius: var(--radius)
+}
+.forth-quarter button{
+  margin-right: 2px;
+}
+.keyboard button:hover{
+  background-color: #fff; 
+  transform:scale(1.1);
+  transition: var(--transition)
+}
+
+
+/* modal ------------------------------ */
 @keyframes modalOpen {
   0% {
     opacity: 0;
