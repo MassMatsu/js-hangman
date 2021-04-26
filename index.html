@@ -31,10 +31,14 @@
           </svg>
           <div class="wrong-letters-container">
             <div id="wrong-letters">
-              <p>wrong</p>
-              <span>| &nbsp;</span>
+              <p class="wrong-title">wrong</p>
+              <!-- <span>| &nbsp;</span> -->
               <span id="wrong-letter"></span>
-              <span> &nbsp; |</span>
+              <!-- <span> &nbsp; |</span> -->
+            </div>
+            <div class="reamining-guesses-container">
+              <p id="remainingGuesses" class="remainingGuess"></p>
+              <p id="message" class="message"></p>
             </div>
           </div>
         </div>
@@ -43,10 +47,12 @@
           <div id="puzzle" class="puzzle">
             <span></span>
           </div>
-          <p id="remainingGuesses" class="remainingGuess"></p>
-          <p id="message" class="message"></p>
+          <!-- <div>
+            <p id="remainingGuesses" class="remainingGuess"></p>
+            <p id="message" class="message"></p>
+          </div> -->
         </div>
-        <form id="submitGuess" class="form">
+        <!-- <form id="submitGuess" class="form">
           <input
             id="guessText"
             type="text"
@@ -55,9 +61,40 @@
             autofocus
             autocomplete="off"
           />
-          <button type="submit" id="guessBtn" >your guess!</button>
-        </form>
+          <button type="submit" id="guessBtn">your guess!</button>
+        </form> -->
+
+        <div id="keyboard" class="keyboard">
+          <div id="first-quarter" class="first-quarter"></div>
+          <div id="second-quarter" class="second-quarter">
+            <button class="key" name="h">h</button>
+            <button class="key" name="i">i</button>
+            <button name="j">j</button>
+            <button name="k">k</button>
+            <button name="l">l</button>
+            <button name="m">m</button>
+            <button name="n">n</button>
+          </div>
+          <div id="third-quarter" class="third-quarter">
+            <button>o</button>
+            <button>p</button>
+            <button>q</button>
+            <button>r</button>
+            <button>s</button>
+            <button>t</button>
+            <button>u</button>
+          </div>
+
+          <div id="forth-quarter" class="forth-quarter">
+            <button>v</button>
+            <button>w</button>
+            <button>x</button>
+            <button>y</button>
+            <button>z</button>
+          </div>
+        </div>
       </div>
+
       <div id="modal-container" class="modal-container">
         <div class="result">
           <h2 id="status"></h2>
@@ -68,8 +105,8 @@
     </div>
 
     <!-- <iframe id='opening' allow='autoplay' style='display:none'></iframe> -->
-    <audio id='opening' src=""></audio>
-    <audio id='audio' src=''></audio>
+    <audio id="opening" src=""></audio>
+    <audio id="audio" src=""></audio>
     <script src="hangman.js"></script>
     <script src="requests.js"></script>
     <script src="app.js"></script>

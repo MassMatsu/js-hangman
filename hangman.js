@@ -27,8 +27,12 @@ class Hangman {
   makeGuess(guess) {
     const newGuess = guess.toLowerCase()
     if (newGuess.match(/[a-z]/)) {
+      console.log('new', newGuess)
       const isUnique = !this.guessedLetters.includes(newGuess);
       const isRight = this.text.includes(newGuess);
+
+      console.log('unique', isUnique)
+      console.log('right', isRight)
 
       if (isUnique) {
         this.guessedLetters.push(newGuess);
@@ -36,11 +40,11 @@ class Hangman {
       if (!isUnique) {
         this.message = 'got it already'
         this.play('already')
-      }
+      } else
       if (isUnique && isRight) {
         this.message = 'nice!';
         this.play('correct')
-      }
+      } else
       if (isUnique && !isRight) {
         this.remainingGuesses--;
         this.message = 'wrong guess..';
