@@ -33,12 +33,14 @@ h1 {
   margin-bottom: 1rem;
   font-weight: normal;
   letter-spacing: 0.5rem;
+  text-shadow: var(--dark-shadow);
 }
 .subtitle {
   text-align: center;
   margin-bottom: 2rem;
   font-weight: normal;
   letter-spacing: 0.25rem;
+  text-shadow: var(--light-shadow);
 }
 .game-status-container {
   display: flex;
@@ -48,33 +50,34 @@ h1 {
   width: 90%;
   height: 90%;
 }
+/* puzzle ----------------------------- */
 .puzzle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 2rem;
   font-size: 3rem;
   text-align: center;
   line-height: 100%;
-  display: flex;
 }
 .puzzle span {
-  /* border-bottom: 1px solid #534f59; */
-  /* display: inline-block; */
+  display: inline-block;
   font-size: 1.5rem;
   height: 2rem;
   line-height: 2rem;
   margin: 0 0.1rem;
   text-align: center;
   text-transform: uppercase;
-  width: 1.5rem;
+  width: .5rem;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .game-status-container {
     justify-content: space-around;
   }
   .container {
     width: 45%;
+  }
+  .puzzle {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
   }
   .puzzle span {
     font-size: 2rem;
@@ -111,9 +114,11 @@ h1 {
   display: none;
 }
 
+/* wrong letter --------------------------- */
 .wrong-title {
   font-size: 1.3rem;
   letter-spacing: 0.25rem;
+  text-shadow: var(--light-shadow);
 }
 .wrong-letters-container {
   text-align: center;
@@ -127,37 +132,12 @@ h1 {
   font-size: 1.75rem;
   letter-spacing: 0.75rem;
 }
+
+/* remainging guesses --------------- */
 .remaining-guesses {
   font-size: 1.3rem;
   letter-spacing: 0.25rem;
-}
-
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.form input {
-  font-size: 2rem;
-  width: 2rem;
-  text-align: center;
-  background: none;
-  border: none;
-  border-bottom: 1px solid rgb(141, 141, 141);
-  margin-right: 1rem;
-}
-.form input:focus {
-  outline: 1px solid rgb(141, 141, 141);
-  border-bottom: none;
-}
-.form button {
-  font-size: 1rem;
-  padding: 0.5rem;
-  border-radius: var(--radius);
-  border: 1px solid rgb(141, 141, 141);
-  background: none;
-  color: rgb(141, 141, 141);
-  cursor: pointer;
+  text-shadow: var(--light-shadow);
 }
 
 /* keyboard --------------------------- */
@@ -197,6 +177,7 @@ h1 {
   color: rgb(141, 141, 141);
   border: 1px solid rgb(141, 141, 141);
   border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
 }
 .forth-quarter button {
   margin-right: 2px;
@@ -235,9 +216,6 @@ h1 {
   animation: modalOpen 0.5s ease;
 }
 .result {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   text-align: center;
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.2);

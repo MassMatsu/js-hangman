@@ -16,6 +16,11 @@ export class Hangman {
         puzzle += '*';
       }
     });
+    // let newPuzzle = puzzle.split(' ')
+    // console.log(newPuzzle)
+    // const firstWord = newPuzzle[0]
+    // const secondWord = newPuzzle[1]
+    // console.log(firstWord, secondWord)
     return puzzle;
   }
   // take input and check if it matches. then set the message and play sound
@@ -64,6 +69,9 @@ export class Hangman {
   play(src) {
     const audio = document.getElementById('audio');
     audio.src = `./sound/${src}.mp3`;
-    audio.play();
+    const playPromise = audio.play();
+    if (playPromise !== null) {
+      playPromise.then((_) => {}).catch((error) => {});
+    }
   }
 }
