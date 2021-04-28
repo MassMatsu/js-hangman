@@ -1,4 +1,7 @@
-import {keys} from '../utils/data.js'
+import { keys } from '../utils/data.js';
+import { game } from '../app.js';
+import { renderModal } from '../view/modal.js';
+import { render } from '../view/mainView.js';
 
 // keyboard
 export const renderKeyboard = () => {
@@ -6,7 +9,7 @@ export const renderKeyboard = () => {
   const secondRowContainer = document.getElementById('second-quarter');
   const thirdRowContainer = document.getElementById('third-quarter');
   const forthRowContainer = document.getElementById('forth-quarter');
-  
+
   firstRowContainer.innerHTML = keys
     .map((key, index) => {
       if (index < 7) {
@@ -35,4 +38,16 @@ export const renderKeyboard = () => {
       }
     })
     .join('');
+
+  // event listener for keybaord click
+  const keysEl = document.querySelectorAll('.key');
+  keysEl.forEach((key) => {
+    key.addEventListener('click', (e) => {
+      game.makeGuess(e.target.name); // set the puzzle
+      game.setStatus(); // check status and set it
+      render(); // render the main part
+      renderModal(); // render the result if it finished
+      //clearText(); // clear the input
+    });
+  });
 };

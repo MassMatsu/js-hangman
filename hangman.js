@@ -16,11 +16,6 @@ export class Hangman {
         puzzle += '*';
       }
     });
-    // let newPuzzle = puzzle.split(' ')
-    // console.log(newPuzzle)
-    // const firstWord = newPuzzle[0]
-    // const secondWord = newPuzzle[1]
-    // console.log(firstWord, secondWord)
     return puzzle;
   }
   // take input and check if it matches. then set the message and play sound
@@ -50,9 +45,6 @@ export class Hangman {
   }
   // set game status whether if it's playing, clear or over
   setStatus() {
-    // make this.text to string and remove ' ', and then put it back to array with split
-    //const text = this.text.join('').replace(/\s+/g, '').split('');
-
     // every letter in the array is included in the guessedLetters will return true
     const completionFlag = this.text.every((letter) => {
       return this.guessedLetters.includes(letter) || letter === ' ';
