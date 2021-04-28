@@ -1,4 +1,4 @@
-import { game} from '../app.js';
+import { game } from '../app.js';
 
 export const render = () => {
   const wrongEl = document.getElementById('wrong-letter');
@@ -20,7 +20,7 @@ export const render = () => {
       })
       .join('');
   } else {
-    wrongEl.innerHTML = `<span>letters appear here</span>`;
+    wrongEl.innerHTML = `<span>letters appear</span>`;
   }
 
   // figure part
@@ -33,14 +33,13 @@ export const render = () => {
   });
 
   // puzzle
-  const word = game.getPuzzle().split('');
-  const spacePosition = word.findIndex((letter) => letter === ' ');
+  const puzzle = game.getPuzzle().split('');
+  const spacePosition = puzzle.findIndex((letter) => letter === ' ');
 
-  puzzleEl.innerHTML = word
+  puzzleEl.innerHTML = puzzle
     .map((letter, index) => {
-      if (window.innerWidth <= 768 && word.length >= 11) {
+      if (window.innerWidth <= 768 && puzzle.length > 12) {
         let br = index === spacePosition ? '<br>' : '';
-
         return `
         ${
           index < spacePosition
@@ -59,7 +58,9 @@ export const render = () => {
   // remaining guesses message
   remainingGuessesEl.innerHTML = `<span class='remaining-guesses'>${
     game.remainingGuesses === 0 ? 'no' : game.remainingGuesses
-  }</span>more guesses${game.remainingGuesses === 1 ? '' : 's'}`;
+  }</span>more guess${
+    game.remainingGuesses > 1 || game.remainingGuesses === 0 ? 'es' : ''
+  }`;
 
   // game message
   messageEl.textContent = game.message;
@@ -68,5 +69,3 @@ export const render = () => {
     game.message = '';
   }, 2500);
 };
-
-

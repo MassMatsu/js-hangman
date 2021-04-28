@@ -1,4 +1,4 @@
-import {game, startGame} from '../app.js'
+import { game, startGame } from '../app.js';
 
 export const renderModal = () => {
   const statusContainer = document.getElementById('modal-container');
@@ -11,7 +11,7 @@ export const renderModal = () => {
     game.play('over');
   }
   if (game.status === 'completed') {
-    statusEl.innerHTML = '<h2>Great job!</h2> <h2>you guessed the word!</h2>';
+    statusEl.innerHTML = '<h2>Great job!</h2> <h2>you guessed the word</h2>';
     game.play('completed');
   }
 

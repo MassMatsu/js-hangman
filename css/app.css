@@ -17,6 +17,7 @@ body {
   font-family: 'Lato', Helvetica, sans-serif;
   line-height: 1.5;
 }
+
 .game-container {
   overflow: hidden;
   width: 100%;
@@ -26,6 +27,11 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+.container {
+  width: 90%;
+  height: 90%;
 }
 
 h1 {
@@ -46,13 +52,11 @@ h1 {
   display: flex;
   justify-content: center;
 }
-.container {
-  width: 90%;
-  height: 90%;
-}
+
 /* puzzle ----------------------------- */
 .puzzle {
-  padding: 2rem;
+  padding: 1.5rem;
+  padding-top: 0;
   font-size: 3rem;
   text-align: center;
   line-height: 100%;
@@ -65,7 +69,7 @@ h1 {
   margin: 0 0.1rem;
   text-align: center;
   text-transform: uppercase;
-  width: .5rem;
+  width: 0.3rem;
 }
 @media screen and (min-width: 1024px) {
   .game-status-container {
@@ -77,7 +81,8 @@ h1 {
   .puzzle {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    padding: 2rem;
   }
   .puzzle span {
     font-size: 2rem;
@@ -89,12 +94,21 @@ h1 {
     width: 2rem;
   }
 }
+
+/* information ---------------------------- */
 .reamining-guesses-container {
   padding-bottom: 1rem;
 }
 .remainingGuess {
   text-align: center;
 }
+
+.remaining-guesses {
+  font-size: 1.3rem;
+  letter-spacing: 0.25rem;
+  text-shadow: var(--light-shadow);
+}
+
 .message {
   height: 1rem;
   text-align: center;
@@ -114,30 +128,36 @@ h1 {
   display: none;
 }
 
-/* wrong letter --------------------------- */
 .wrong-title {
-  font-size: 1.3rem;
-  letter-spacing: 0.25rem;
+  font-size: 1.5rem;
+  letter-spacing: var(--spacing);
+  margin-bottom: 0.25rem;
   text-shadow: var(--light-shadow);
 }
 .wrong-letters-container {
   text-align: center;
-  padding: 20px;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .wrong-letter {
   margin-top: 0.5rem;
-  font-size: 1.75rem;
-  letter-spacing: 0.75rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
 }
 
-/* remainging guesses --------------- */
-.remaining-guesses {
-  font-size: 1.3rem;
-  letter-spacing: 0.25rem;
-  text-shadow: var(--light-shadow);
+@media screen and (min-width: 1024px) {
+  .wrong-letters-container {
+    padding: 25px 10px;
+  }
+  .wrong-letter {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+  }
+  .message {
+    font-size: 1.5rem;
+  }
 }
 
 /* keyboard --------------------------- */
