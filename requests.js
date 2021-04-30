@@ -8,3 +8,4 @@ export const fetchPuzzle = async () => {
     throw new Error('unable to fetch the data');
   }
 };
+
