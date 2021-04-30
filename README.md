@@ -1,7 +1,7 @@
 ##### Hangman Game
 Hangman Game web app. It is a well known game in the world which is easy for everyone to play. either for having fun, killing your time or teasing your brain, it works for you at anywhere you have an internet access.
 
-<https://js-hangman-mass.netlify.app>
+[let's play!][https://js-hangman-mass.netlify.app]
 
 ##### how to play
 ** guess the words before your man gets hung! **
@@ -16,9 +16,9 @@ Hangman Game web app. It is a well known game in the world which is easy for eve
 - [x] lots of different words to guess which are randomly generated from API.
 - [x] various soound effects keep you away from getting bored
 - [x] SVG hangman figure entertains you and gives excitements
-- [x] a message appears to what happends every time you commit your guess
-- [x] clealy show how many chances are left before game is over
-- [x] user friendly keyboard to select your guess
+- [x] message appears to show what happends every time you commit your guess
+- [x] it dynamically shows how many chances are left before game is over
+- [x] user friendly keyboard to choose a letter for your guess
 - [x] responsive design for playing the game with a mobile phone or tablet
 
 ##### DEMO
@@ -28,6 +28,6 @@ Hangman Game web app. It is a well known game in the world which is easy for eve
 - 
 
 
-##### requirement
+##### requirements
 - javascript
 - browser
