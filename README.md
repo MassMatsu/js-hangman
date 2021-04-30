@@ -1,20 +1,3 @@
-###### Hangman Game
+##### Hangman Game
 
-
-###### DEMO
-
-
-
-##### Features
-
-
-##### Requirement
-
-
-
-##### Usage
-
-
-#### 
-
-
+##### DEMO
