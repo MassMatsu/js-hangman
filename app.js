@@ -1,7 +1,7 @@
 import { render } from './view/mainView.js';
 import { renderKeyboard } from './view/keyboard.js';
 import { Hangman } from './hangman.js';
-import { fetchPuzzle } from './requests.js';
+import { fetchPuzzle } from './api/requests.js';
 
 export const startGame = async () => {
   const puzzle = await fetchPuzzle();
